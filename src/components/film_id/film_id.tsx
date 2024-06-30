@@ -1,6 +1,9 @@
 import { Info } from "../info/info"
 import FilmStyle from "./styles.module.css"
 import { Star } from "../star/star"
+import { useSelector } from "react-redux"
+import { selectAuthorizedInfo } from "../../entities/slices"
+import { useState, useEffect} from "react"
 
 interface IFilmId {
     movie: {}
@@ -8,6 +11,20 @@ interface IFilmId {
 
 
 export const FilmId = (props: IFilmId) => {
+
+    const [authorization, setAuthorization] = useState(null);
+    const isAuthorized: boolean  = useSelector((state) => selectAuthorizedInfo(state));
+    
+    useEffect(() => {
+        if(isAuthorized.isAuthorized === true) setAuthorization(true);
+        else setAuthorization(false);
+    }, [isAuthorized]);
+
+    useEffect(() => {
+        const temp_token = localStorage.getItem("token");
+        if(temp_token) setAuthorization(true);
+        else setAuthorization(false);
+    }, []);
 
     const rating = [];
     let score_active = 0;
@@ -33,9 +50,11 @@ export const FilmId = (props: IFilmId) => {
                 </div>
                  
             </div>
-            <div className={FilmStyle.score}>
+            {(authorization === true) ? 
+            (<div className={FilmStyle.score}>
                 {rating}
-            </div>
+                </div>) : (<></>)
+            }
         </div>
     )
 }

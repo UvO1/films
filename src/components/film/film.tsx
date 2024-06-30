@@ -18,9 +18,18 @@ export const Film = (props: IFilm) => {
     const isAuthorized: boolean  = useSelector((state) => selectAuthorizedInfo(state));
     
     useEffect(() => {
-        if(isAuthorized) setAuthorization(true);
+        console.log("trd")
+        if(isAuthorized.isAuthorized === true) setAuthorization(true);
         else setAuthorization(false);
     }, [isAuthorized]);
+
+    useEffect(() => {
+        console.log("check");
+        console.log(isAuthorized);
+        const temp_token = localStorage.getItem("token");
+        if(temp_token) setAuthorization(true);
+        else setAuthorization(false);
+    }, []);
     
     const rating = [];
     const score_active = Math.floor(parseFloat(props.movie.rating));
@@ -46,10 +55,10 @@ export const Film = (props: IFilm) => {
                     </div>
                 </div>
             </div>
-            {(authorization === true) &&
-                <div className={FilmStyle.score}>
+            {(authorization === true) ? 
+                (<div className={FilmStyle.score}>
                     {rating}
-                </div>
+                </div>) : (<></>)
             }
         </div>
     )
