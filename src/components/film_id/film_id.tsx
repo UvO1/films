@@ -1,10 +1,6 @@
-import { useEffect, useState } from "react"
-import { ShortMovieInfo } from "../../entities/types"
 import { Info } from "../info/info"
 import FilmStyle from "./styles.module.css"
 import { Star } from "../star/star"
-import { useNavigate } from "react-router-dom"
-import { useGetMovieInfoQuery } from "../../entities/slices"
 
 interface IFilmId {
     movie: {}

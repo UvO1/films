@@ -7,15 +7,13 @@ import { useGetMovieInfoQuery } from "../../entities/slices";
 export const MoviePage = () => {
     const { movieId } = useParams();
     const[id, setId] = useState("");
-    const {data, isFetching, isLoading, refetch} =  useGetMovieInfoQuery(id);
+    const {data} =  useGetMovieInfoQuery(id);
     const [result, setResult] = useState({});
 
     useEffect(() => {
         setResult(data);
-        console.log(data);
     }, [data]);
 
-    console.log(movieId);
     useEffect(() => {
         if(movieId != undefined) setId(movieId);
     }, [movieId])

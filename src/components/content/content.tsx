@@ -15,7 +15,7 @@ export const Content = () => {
     const [year, setYear] = useState('0');
     const [query, setQuery] = useState('page=' + page);
     const [debouncedInput, setDebouncedInput] = useState("");
-    const {data: dataPages, isFetching, isLoading, refetch} = useGetMoviesQuery(query);
+    const {data: dataPages} = useGetMoviesQuery(query);
 
     const [result, setResult] = useState('');
 

@@ -13,7 +13,6 @@ export const Header = () => {
     const isAuthorized: boolean  = useSelector((state) => selectAuthorizedInfo(state));
 
     useEffect(() => {
-        console.log("is authorize")
         const temp_token = localStorage.getItem("token");
         if(temp_token) {
             setAuthorization(true);
@@ -23,7 +22,6 @@ export const Header = () => {
             setAuthorization(false);
             change(false);
         }
-        console.log(isAuthorized);
     }, [isAuthorized]);
 
     useEffect(() => {
@@ -43,7 +41,6 @@ export const Header = () => {
     }
 
     const handleUnAuthorized = () => {
-        //console.log("remove");
         localStorage.removeItem("token");
         localStorage.clear();
         dispatch(change(false));

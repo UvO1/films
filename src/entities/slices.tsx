@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
 
 
 export const apiSlice = createApi({

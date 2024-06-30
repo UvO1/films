@@ -19,7 +19,6 @@ export const Authorize = (props: IAuthorize) => {
     const isAuthorized  = useSelector((state) => selectAuthorizedInfo(state));
     
     useEffect(() => {
-        console.log(isAuthorized);
     }, [isAuthorized]);
 
     const handleGetAuthorization = () => {
@@ -29,7 +28,6 @@ export const Authorize = (props: IAuthorize) => {
                 "password": passwordInput.current.value
             }
         }).then((data) => {
-            console.log(JSON.stringify(data));
             localStorage.setItem("token", data["data"]["token"]);
             props.onClose();
             dispatch(change(true));
@@ -38,13 +36,6 @@ export const Authorize = (props: IAuthorize) => {
         .catch((err) => {
             console.log(err);
         })
-    }
-
-    
-    const handleClick = () => {
-        console.log("handle click");
-        console.log(loginInput.current.value);
-        console.log(passwordInput.current.value);
     }
 
     return(
@@ -59,7 +50,7 @@ export const Authorize = (props: IAuthorize) => {
                     <div className={AuthorizeStyle.auth_input}> 
                         <input placeholder="Введите логин" value={login} ref={loginInput} onChange={e => setLogin(e.target.value)}/>
                     </div>
-                    <label className={AuthorizeStyle.auth_label} onClick={handleClick}>Пароль</label>
+                    <label className={AuthorizeStyle.auth_label}>Пароль</label>
                     <div className={AuthorizeStyle.auth_input}> 
                         <input placeholder="Введите пароль" value={password} ref={passwordInput} onChange={e => setPassword(e.target.value)}/>
                     </div>
