@@ -1,0 +1,31 @@
+.button{
+    background-color: #FF5500;
+    color: #FFFFFF;
+    border-radius: 8px;
+    min-width: 72px;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid #FF5500;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #E94E00;
+    border: 1px solid #E94E00;
+}
+
+.button_invert{
+    color: #FF5500;
+    border-radius: 8px;
+    min-width: 72px;
+    height: 40px;
+    border: 1px solid #FF5500;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.button_invert:hover{
+    border: 1px solid #E94E00;
+    background-color: #FFFFFF;
+    color: #E94E00;
+}

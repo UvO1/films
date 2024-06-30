@@ -1,0 +1,19 @@
+.area{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 16px;
+    margin-right: 8px;
+    height: 44px;
+}
+
+.number{
+    font-size: 14px;
+    color: #000000;
+}
+
+.number_inactive{
+    font-size: 14px;
+    color: #ABABAB;
+}
