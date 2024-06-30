@@ -1,0 +1,44 @@
+.area{
+    margin-top: 16px;
+    height: auto;
+    width: calc(100% - 48px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.info_area{
+    display: flex;
+    flex-direction: row;
+}
+
+.picture{
+    width: 400px;
+    height: fit-content;
+    border-radius: 8px;
+}
+
+.info{
+    margin-left: 32px;
+    flex-direction: column;
+}
+
+.title{
+    color: #1B1F23;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.info_list{
+    display: flex;
+    flex-direction: column;
+}
+
+.score{
+    width: 112px;
+    display: flex;
+    flex-direction: row;
+}
